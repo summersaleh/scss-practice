@@ -1,0 +1,79 @@
+@mixin  blue-beans {
+  @if $brand == blue-beans {
+    @content;
+  }
+}
+
+
+@mixin xs-screens() {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin small-screens() {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin medium-screens() {
+  @media only screen and (max-width: 680px) {
+    @content;
+  }
+}
+
+@mixin large-screens() {
+  @media only screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin google-font($font) {
+  $font: unquote($font);
+  @import url(https://fonts.googleapis.com/css?family=#{$font});
+}
+
+@mixin box ($radius: 6px, $border: 1px soild #000) {
+    @include rounded($radius);
+    border: $border;
+  }
+
+  @mixin box-shadow($shadows...) {
+      box-shadow: $shadows;
+      -moz-box-shadow: $shadows;
+      -webkit-box-shadow: $shadows;
+  }
+
+  @mixin apply-to-ie-6 {
+      * html {
+          @content;
+      }
+  }
+
+  @mixin fancy-links {
+    a {
+      font-style: italic;
+      text-decoration: none;
+    }
+  }
+
+  @mixin large-text {
+    font: {
+      size: 22px;
+      weight: bold;
+    }
+  }
+
+  @mixin rounded($raduis: 6px) {
+    border-radius: $raduis;
+  }
+
+  @mixin warning {
+    background-color: orange;
+    color: white;
+
+    &:hover {
+      background-color: lighten(orange, 10%);
+    }
+  }
